@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Entity;
+using Microsoft.Extensions.Configuration;
 using MvcTemplate.Data.Mapping;
 using MvcTemplate.Objects;
 
@@ -6,6 +7,9 @@ namespace MvcTemplate.Data.Core
 {
     public class Context : DbContext
     {
+
+        static IConfiguration Configuration { get; set; }
+
         #region Administration
 
         protected DbSet<Role> Roles { get; set; }
@@ -24,12 +28,15 @@ namespace MvcTemplate.Data.Core
 
         static Context()
         {
+            Configuration = new ConfigurationBuilder().AddJsonFile("config.json").Build();
             ObjectMapper.MapObjects();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Mvc6Template;Trusted_Connection=True;MultipleActiveResultSets=True");
+            //System.Diagnostics.Debugger.Launch();
+            //optionsBuilder.UseSqlServer(@"Data Source=.;Initial Catalog=GXFW_INT;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False");
+            optionsBuilder.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace MvcTemplate.Data.Migrations
 
         public Configuration(DbContext context)
         {
-            IAuditLogger logger = new AuditLogger(new Context(), "sys_seeder");
+            IAuditLogger logger = new AuditLogger(context, "sys_seeder");
             UnitOfWork = new UnitOfWork(context, logger);
         }
 

@@ -1,0 +1,7 @@
+{
+   "Data": {
+      "DefaultConnection": {
+          "ConnectionString":  "Data Source=.;Initial Catalog=GXFW_Dev;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"
+      }
+    }
+}

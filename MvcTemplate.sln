@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B0DD474E-025
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9B7AE608-1E96-4066-9DC8-5DFA9DF8C47A}"
 	ProjectSection(SolutionItems) = preProject
+		src\MvcTemplate.Web\config.json = src\MvcTemplate.Web\config.json
 		global.json = global.json
 	EndProjectSection
 EndProject
